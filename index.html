@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>奇妙的小房間</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/11.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.8.1/firebase-database-compat.js"></script>
+    <script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyBspAguNz8LCzUgpswDAlNLLotZcHg08Aw",
+    authDomain: "gamme-45723.firebaseapp.com",
+    databaseURL: "https://gamme-45723-default-rtdb.firebaseio.com",
+    projectId: "gamme-45723",
+    storageBucket: "gamme-45723.firebasestorage.app",
+    messagingSenderId: "723157816116",
+    appId: "1:723157816116:web:df70b7dc97992a8519cb61"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    </script>
+</head>
+<body>
+    <div id="intro-screen">
+        <button id="start-game-intro">開始遊戲</button>
+    </div>
+
+    <div id="story-display-screen" style="display: none;">
+        <div id="story-text-container">
+            <p id="typed-story-text"></p>
+        </div>
+        <button id="skip-story-button" style="display: none;">跳過故事</button>
+        <button id="continue-game-story" style="display: none;">繼續遊戲</button>
+    </div>
+
+    <div id="game-container" style="display: none;">
+        <div id="room-screen">
+            <img src="image/calendar.png" class="interactable-item" id="item-calendar" alt="日曆">
+            <img src="image/bookshelf.png" class="interactable-item" id="item-bookshelf" alt="書架">
+            <img src="image/puzzle.png" class="interactable-item" id="item-puzzle" alt="拼圖">
+            <img src="image/musicbox.png" class="interactable-item" id="item-musicbox" alt="音樂盒">
+
+            <img src="image/table.png" class="decoration-item" id="decoration-table" alt="桌子">
+            <img src="image/lamp.png" class="decoration-item" id="decoration-lamp" alt="檯燈">
+
+            <div id="password-input-area">
+                <h3>密碼</h3>
+                <input type="text" id="password" placeholder="輸入四位數密碼" maxlength="4">
+                <button id="submit-button">輸入</button>
+                <p id="password-feedback"></p>
+            </div>
+        </div>
+        <div id="puzzle-screen" style="display: none;">
+            <h2 id="puzzle-title"></h2>
+            <div id="puzzle-content">
+                </div>
+            <p id="puzzle-feedback"></p>
+            <button id="submit-puzzle" style="display: none;">提交答案</button> 
+            <button id="back-to-room">返回房間</button>
+        </div>
+
+        <div id="success-screen" style="display: none;">
+            <h2>恭喜成功通關!</h2>
+            <div id="success-animation">🎉</div>
+            <h3>排行榜</h3>
+            <ol id="leaderboard-list"></ol>
+            <button id="restart-button">再玩一次</button>
+            <button id="end-button">結束</button>
+        </div>
+
+    </div> 
+    
+    <script src="script.js"></script>
+</body>
+</html>
